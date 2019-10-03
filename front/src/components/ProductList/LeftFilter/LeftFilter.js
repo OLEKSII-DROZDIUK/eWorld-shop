@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {withRouter, Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
+import PreloaderSmall from '../../PreloaderSmall/PreloaderSmall';
+
 import {getProductsMenu} from '../../../actions/productsMenu';
 import {getProductsFilters} from '../../../actions/poroductFilters';
 import idGeneratorHelper from '../../../helpers/renderHelpers/idGeneratorHelper';
@@ -91,23 +93,23 @@ class LeftFilter extends Component {
         
         const mainCategory = productsMenu.map((obj) => {
             const key = idGeneratorHelper()
-            return(<React.Fragment key={key}>
+            return(
+                <React.Fragment key={key}>
                     {(obj.lvl === 1)
                     ?<li >
                         <Link to="/"
-                        name={obj.categoryFilter.category}
-                        onClick={this.handleClickCategory}>{obj.name}</Link>
+                            name={obj.categoryFilter.category}
+                            onClick={this.handleClickCategory}>
+                            {obj.name}
+                        </Link>
                     </li>
-                    :null
-                    }
+                    :null}
                 </React.Fragment>
             )  
         })
 
-        const productsFiulter =  allProductsFilters.length > 2?
-            allProductsFilters.map((obj) => {
-                    {return(
-                        Object.keys(obj).map((arr)=>{
+        const productsFiulter = allProductsFilters.map((obj) => {
+                    return(Object.keys(obj).map((arr)=>{
                             return(
                                 arr != "_id"?
                             <div key={obj._id}className="type-list d-flex flex-md-column flex-wrap">
@@ -129,19 +131,23 @@ class LeftFilter extends Component {
                             :null
                             )
                         })
-                    )}
+                    )
                 })
-                :null
-                    
-        return(
+
+        return (
             <React.Fragment>
-  
-                    <button className="btn hidden product-filter__btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    <button className="btn hidden product-filter__btn" 
+                        type="button" 
+                        data-toggle="collapse" 
+                        data-target="#collapseExample" 
+                        aria-expanded="false" 
+                        aria-controls="collapseExample">
                         Filter menu
                     </button>
-                    
                     <div className="collapse dont-collapse-sm" id="collapseExample">
-                       <div className="product-filter_category d-flex flex-column">
+                        {mainCategory.length > 0
+                        ?<React.Fragment>
+                        <div className="product-filter_category d-flex flex-column">
                             <span className="product-filter_category-title">Category</span>
                             <div className="product-filter_category_list d-flex flex-column">
                                 <ul className="category_list_box-category d-flex flex-column">
@@ -153,12 +159,15 @@ class LeftFilter extends Component {
                                 </ul>
                             </div>
                         </div>
-                        <div className="product-filter_type d-flex flex-column">
-                            <span className="product-filter_type-title">REFINE SEARCH</span>
-                            <div className="product-filter_type-list">  
-                                {productsFiulter}
-                            </div>
-                        </div>
+                        </React.Fragment>
+                        :<PreloaderSmall/>}
+                        {productsFiulter.length > 1?
+                            <div className="product-filter_type d-flex flex-column">
+                                <span className="product-filter_type-title">REFINE SEARCH</span>
+                                <div className="product-filter_type-list">  
+                                    {productsFiulter}
+                                </div>
+                            </div>:<PreloaderSmall className="mb2"/>}
                     </div>
             </React.Fragment>
         )

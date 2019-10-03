@@ -12,7 +12,6 @@ class Subscribe extends Component {
 
     this.state = {
       email: "",
-      // isLoading: false,
       message: ""
     };
   }
@@ -60,7 +59,7 @@ class Subscribe extends Component {
                       id="Email"
                       placeholder="Enter Your Email Adress"
                       required
-                      autocomplete="off"
+                      autoComplete="off"
                     />
                   </div>
                   <button
@@ -68,7 +67,7 @@ class Subscribe extends Component {
                     onClick={ev => this.subscribe(ev)}
                     className="btn btn-subscribe"
                   >
-                    {this.props.isLoading && (
+                    {isLoading && (
                       <span
                         className="spinner-border pr-sm-2 spinner-border-sm"
                         role="status"
