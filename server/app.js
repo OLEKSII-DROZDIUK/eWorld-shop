@@ -27,7 +27,7 @@ const subscribe = require("./routes/subscribe");
 const stars = require("./routes/stars");
 
 app.use("/orders", orders);
-app.use("/profile", authMiddleWare, profile);
+app.use("/personal", authMiddleWare, profile);
 app.use("/authentication", authCustomer);
 app.use("/products", products);
 app.use("/slides", sliders);

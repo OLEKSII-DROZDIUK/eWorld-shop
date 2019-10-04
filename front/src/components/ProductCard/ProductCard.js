@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import { withRouter} from 'react-router-dom';
 
 import recProductCardRenderHelper from '../../helpers/renderHelpers/recProductCardRenderHelper';
 import allProductCardRenderHelper from '../../helpers/renderHelpers/allProductCardRenderHelper';
@@ -19,8 +17,6 @@ class ProductCard extends Component {
         const allProd = this.props.allProducts?
                 allProductCardRenderHelper(this.props.allProducts, this.props.gridType)
                 :null
-
-
         return(
             <React.Fragment>
                 {recProd}
@@ -29,20 +25,5 @@ class ProductCard extends Component {
         )
     }
 }
-    
-const mapStateToProps = function (store) {
-    return {
-        
-    }
 
-};
-const mapDispatchToProps = function (dispatch) {
-    return {
-    
-    }
-};
-
-export default withRouter(connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(ProductCard))
+export default ProductCard;

@@ -1,4 +1,4 @@
-#FinalProject_shop
+#eWorld
 
 **Need Node.js v8.1+ in your PC.**
 
@@ -9,11 +9,9 @@ QUICK START in local machine
 2) Run all project withc command "npm run dev"
 
 
->Project task: [link_click](https://gitlab.com/dan-it/groups/fe5/tree/master/final-project)
+### Application AWS ubuntu + pm2
 
-### Application aws
-
-[Link](http://18.216.210.110:3006/)
+[Link application](http://18.216.210.110:3010/)
 
 
 ### Package in front(React): 

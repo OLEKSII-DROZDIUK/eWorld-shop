@@ -2,7 +2,7 @@
     margin:10px 0px;
     padding:0.1rem;
     width: 720px;
-    min-height: 20em;
+    min-height:20em;
     border: none;
 }
 
@@ -80,7 +80,7 @@
     color:white;
     text-transform: uppercase;
     font-weight: bold;
-    font-size:14px;
+    font-size:12px;
 }
 
 .product-card-back__addtocart:hover {

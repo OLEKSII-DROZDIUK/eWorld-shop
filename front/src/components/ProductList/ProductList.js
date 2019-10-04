@@ -8,6 +8,7 @@ import PorductCard from '../ProductCard/ProductCard';
 import CategoryFilter from './CategoryFilter/CategoryFilter';
 import ProductListHeader from './ProductListHeader/ProductListHeader';
 import LeftFilter from './LeftFilter/LeftFilter';
+import PreloaderBig from "../PreloaderBig/PreloaderBig";
 
 import {getAllProducts} from '../../actions/allProducts'
 import {getFiltredProducts} from '../../actions/allProducts';
@@ -136,8 +137,9 @@ class ProductList extends Component {
                                 ?allProducts.slice(
                                 (this.state.pageCount >= allProducts.length)?0
                                 :this.state.pageCount, this.state.renderCount + this.state.pageCount)
-                            :null}/>
-                            :<img src="/img/noproduct.jpg" className="img-fluid" alt="no-product"/>}
+                                :null}/>
+                            :this.state.filterStatus?<img src="/img/noproduct.jpg" className="img-fluid" alt="no-product"/>
+                            :<PreloaderBig></PreloaderBig>}
                             <div className="product-list_viewmore d-flex justify-content-end">
                                 {this.state.pageCount >0
                                 ?<button className="btn product-list_viewmore__btn" 

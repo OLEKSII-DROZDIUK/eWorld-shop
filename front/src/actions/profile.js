@@ -14,7 +14,7 @@ export function getCustomer(checkout) {
             type: CUSTOMER_REQUEST,
         });
        
-        axios.get("/profile")
+        axios.get("/personal")
         .then(res => {
             if(res.status === 200){
                 dispatch({
@@ -46,7 +46,7 @@ export function editProfile(email, login, firstName, lastName, phone) {
             type: CUSTOMER_REQUEST,
         });
 
-        await axios.put("/profile/editprof",{
+        await axios.put("/personal/editprof",{
             data:{email, login, firstName, lastName, phone}
         })
         .then(res => { 
@@ -76,7 +76,7 @@ export function editAdress(city, street, num, post_code){
             type: CUSTOMER_REQUEST,
         });
 
-        await axios.put("/profile/ediadress",{
+        await axios.put("/personal/ediadress",{
             data:{city, street, num, post_code }
         })
         .then(res => {
@@ -105,7 +105,7 @@ export function editCustomerPass(oldPassword, newPassword) {
             type: CUSTOMER_REQUEST,
         });
 
-        await axios.put("/profile/editpass",{
+        await axios.put("/personal/editpass",{
             data:{ oldPassword, newPassword }
         })
         .then(res => {
