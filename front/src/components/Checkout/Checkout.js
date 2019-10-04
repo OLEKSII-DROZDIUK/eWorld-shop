@@ -78,13 +78,9 @@ class Checkout extends Component {
     }
 
     handlePaymentSwitch(event){
-        // console.log(event.target.value)
         this.setState({
             payment_type:event.target.value
         })
-        if(event.target.value === "Online card Visa/MasterCard") {
-            console.log(event.target.value)
-        }
     }
 
     render() {
@@ -169,7 +165,7 @@ class Checkout extends Component {
                                     <div className="form-group col-sm-12">
                                     <label htmlFor="delivery-holder">Delivery type</label>
                                     <select className="form-control" id="delivery-holder">
-                                            {customer.adress?
+                                            {customer.adress && customer.adress.city && customer.adress.street && customer.adress.num && customer.adress.post_code?
                                             <option>On my adress ({customer.adress.city + ', '+customer.adress.street+ ', '+customer.adress.num+ ', zip: '+customer.adress.post_code})</option>
                                             :null}
                                             <option>Post</option>
