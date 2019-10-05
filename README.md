@@ -6,7 +6,7 @@ QUICK START in local machine
 -----------
 1) After downloading the repository run "npm install" command in three folder: main folder(./), ./server, ./front
 
-2) Run all project withc command "npm run dev"
+2) Run all project with command "npm start"
 
 
 ### Application AWS ubuntu + pm2
